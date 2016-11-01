@@ -1,0 +1,32 @@
+<div class="col-12 content-title">
+  <h2>Create Account</h2>
+</div>
+<div >
+  <form class="form" action="/signup" method="post">
+    <label>Name:</label>
+    <input type="text" name="name" value="">
+
+    <label>Estate:</label>
+    <select class="" name="state">
+      <% @states.each do |state| %>
+        <option value="<%= state.id %>"><%= state.name %></option>
+      <% end %>
+    </select>
+
+    <label>City:</label>
+    <input type="text" name="city" value="">
+
+    <label>Address:</label>
+    <input type="text" name="address" value="">
+
+    <label>Post Code:</label>
+    <input type="text" name="postcode" value="">
+
+    <label>E-mail:</label>
+    <input type="text" name="email" value="">
+
+    <label>Password:</label>
+    <input type="password" name="password" value="">
+
+  </form>
+</div>
