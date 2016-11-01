@@ -9,6 +9,6 @@ function myFunction() {
 
 
 
-$('<select[name="state"]>').change(function () {
+$('#select-state').change(function () {
   alert( "Handler for .change() called." );
 });

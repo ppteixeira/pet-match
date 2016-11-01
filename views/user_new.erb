@@ -7,7 +7,8 @@
     <input type="text" name="name" value="">
 
     <label>Estate:</label>
-    <select class="" name="state">
+    <select class="" name="state" id='select-state'>
+      <option value=""></option>
       <% @states.each do |state| %>
         <option value="<%= state.id %>"><%= state.name %></option>
       <% end %>

@@ -2,25 +2,32 @@
   <h2>Register my Pet</h2>
 </div>
 <div >
-  <form class="" action="/pet" method="post">
+  <form class="" action="/pet/new" method="post">
     <label>Name:</label>
     <input type="text" name="name" value="">
 
     <label>Species:</label>
-    <input type="text" name="species" value="">
-
-    <label>Years:</label>
-    <input type="text" name="years" value="">
-
-    <label>Months:</label>
-    <input type="text" name="months" value="">
+    <input type="radio" name="species" value="dog" checked> Dog
 
     <label>Breed:</label>
-    <input type="text" name="breed" value="">
+    <select class="" name="breed">
+      <option value=""></option>
+      <% @breeds.each do |breed| %>
+        <option value="<%= breed.id %>"><%= breed.name %></option>
+      <% end %>
+    </select>
+
+    <label>Gender:</label>
+    <select class="" name="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
 
     <label>Description:</label>
     <input type="text" name="description" value="">
 
-    <input type="text" name="owner" value="">
+    <input type="hidden" name="owner" value="<%= @owner %>">
+
+    <button>Save</button>
   </form>
 </div>

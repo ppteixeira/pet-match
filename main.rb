@@ -7,6 +7,7 @@ require_relative 'models/animal'
 require_relative 'models/user'
 require_relative 'models/state'
 require_relative 'models/city'
+require_relative 'models/dog_breed'
 
 helpers do
   def logged_in?
@@ -27,8 +28,21 @@ get '/pet' do
 
 end
 
-post '/pet/new' do
+get '/pet/new' do
+  @breeds = DogBreed.all
+  @owner = session[:user_id]
+  erb :pet_new
+end
 
+post '/pet/new' do
+  pet = Animal.new
+  pet.name = params[:name]
+  pet.species = params[:species]
+  pet.breed = params[:breed]
+  pet.gender = params[:gender]
+  pet.description = params[:description]
+  pet.owner = params[:owner]
+  pet.save
 
 end
 
@@ -62,7 +76,7 @@ post '/session' do
   if user && user.authenticate(params[:password])
     #you are fine
     session[:user_id] = user.id
-    redirect to '/'
+    redirect to "/user/#{user.id}"
   else
     #who are you
     erb :session_new
@@ -73,4 +87,9 @@ delete '/session' do
   #clearing the session
   session[:user_id] = nil
   redirect to '/session/new'
+end
+
+get '/user/:id' do
+
+  erb :user_home
 end

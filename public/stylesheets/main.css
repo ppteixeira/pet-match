@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-.topnav {
+/*.topnav {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -23,7 +23,7 @@
 }
 .topnav li.icon{
   display: none;
-}
+}*/
 
 .header {
 
