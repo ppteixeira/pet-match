@@ -1,13 +1,41 @@
 CREATE TABLE states (
-  id SERIAL4,
+  id SERIAL4 PRIMARY KEY,
   name VARCHAR(50)
 );
 
 CREATE TABLE cities (
-  id SERIAL4,
+  id SERIAL4 PRIMARY KEY,
   name VARCHAR(60),
   state VARCHAR(50)
 );
+
+CREATE TABLE animals (
+  id SERIAL4 PRIMARY KEY,
+  name VARCHAR(50),
+  species VARCHAR(30),
+  dog_breed_id INTEGER,
+  user_id INTEGER,
+  gender VARCHAR (10),
+  city_id INTEGER,
+  state_id INTEGER,
+  description TEXT
+);
+
+INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Max', 'dog', 52, 11, 'male', 53, 5,' dog Max bla bla bla');
+INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Buster', 'dog', 52, 11, 'male', 53, 5,' dog Buster bla bla bla');
+INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Charlie', 'dog', 52, 11, 'male', 53, 5,' dog Charlie bla bla bla');
+INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Buddy', 'dog', 30, 11, 'male', 22, 2,' dog Buddy bla bla bla');
+INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Rocky', 'dog', 30, 11, 'male', 22, 2,' dog Rocky bla bla bla');
+INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Jake', 'dog', 17, 11, 'male', 22, 2,' dog Jake bla bla bla');
+INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Bella', 'dog', 52, 21, 'male', 53, 5,' dog Bella bla bla bla');
+INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Lucy', 'dog', 52, 21, 'male', 53, 5,' dog Lucy bla bla bla');
+INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Molly', 'dog', 52, 21, 'male', 53, 5,' dog Molly bla bla bla');
+INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Daisy', 'dog', 30, 21, 'male', 22, 2,' dog Daisy bla bla bla');
+INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Sophie', 'dog', 30, 21, 'male', 22, 2,' dog Sophie bla bla bla');
+INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Lola', 'dog', 17, 21, 'male', 22, 2,' dog Lola bla bla bla');
+
+
+
 
 INSERT INTO users (name,city,address,postcode, animal, email, password,state) VALUES ('')
 
@@ -62,7 +90,6 @@ INSERT INTO cities (name,state) VALUES('Sunshine', 2);
 INSERT INTO cities (name,state) VALUES('Toowoomba', 2);
 INSERT INTO cities (name,state) VALUES('Townsville', 2);
 
-
 INSERT INTO cities (name,state) VALUES('Adelaide', 3);
 INSERT INTO cities (name,state) VALUES('Mount Barker', 3);
 INSERT INTO cities (name,state) VALUES('Mount Gambier', 3);
@@ -78,7 +105,6 @@ INSERT INTO cities (name,state) VALUES('hobart',4);
 INSERT INTO cities (name,state) VALUES('Burnie',4);
 INSERT INTO cities (name,state) VALUES('Devonport',4);
 INSERT INTO cities (name,state) VALUES('Launceston',4);
-
 
 INSERT INTO cities (name,state) VALUES('Melbourne',5);
 INSERT INTO cities (name,state) VALUES('Geelong',5);
