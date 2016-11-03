@@ -18,33 +18,37 @@
     <div class="">
       <%= "#{@pets.count} registered" %>
     </div>
-    <% @pets.each do |pet| %>
-      <div class="pet-user">
-        <div class="pet-user-img">
-          <span>Name: <%= pet.name %></span>
+    <ul>
+      <% @pets.each do |pet| %>
+      <li>
+        <div class="pet-user">
+          <div class="pet-user-img">
+            <span>Name: <%= pet.name %></span>
+          </div>
+          <div class="pet-user-data">
+
+            <ul>
+              <li>Name: <%= pet.name %></li>
+              <li>Breed: <%= pet.dog_breed.name %></li>
+              <li>Gender: <%= pet.gender %></li>
+              <li>State: <%= pet.city.state.name %></li>
+              <li>City: <%= pet.city.name %></li>
+            </ul>
+            <p>
+              <%= pet.description %>
+            </p>
+          </div>
+
+          <form class="" action="/pet_edit/<%= pet.id %>" method="get">
+            <button>edit</button>
+          </form>
+
+          <form class="" action="/pet_delete/<%= pet.id %>" method="post">
+            <button>delete</button>
+          </form>
         </div>
-        <div class="pet-user-data">
-
-          <ul>
-            <li>Name: <%= pet.name %></li>
-            <li>Breed: <%= pet.dog_breed.name %></li>
-            <li>Gender: <%= pet.gender %></li>
-            <li>State: <%= pet.city.state.name %></li>
-            <li>City: <%= pet.city.name %></li>
-          </ul>
-          <p>
-            <%= pet.description %>
-          </p>
-        </div>
-
-        <form class="" action="/pet_edit/<%= pet.id %>" method="get">
-          <button>edit</button>
-        </form>
-
-        <form class="" action="/pet_delete/<%= pet.id %>" method="post">
-          <button>delete</button>
-        </form>
-      </div>
-     <% end %> <!-- @pets.each do |pet| -->
+      </li>
+      <% end %> <!-- @pets.each do |pet| -->
+   </ul>
   <% end %> <!-- else - if @pets.count < 1 -->
 </div>

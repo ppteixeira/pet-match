@@ -5,7 +5,7 @@
   <% end %>
 </div>
 <div >
-  <form class="" action="/pet/new" method="post">
+  <form class="" action="/pet/update" method="post">
     <ul>
       <li>
         <label>Name:</label>
@@ -35,7 +35,7 @@
       <li>
         <label>Gender:</label>
         <select class="" name="gender">
-          <% if @pet_to_edit == 'male' %>
+          <% if @pet_to_edit.gender == 'male' %>
             <option selected value="male">Male</option>
             <option value="female">Female</option>
           <% else %>
@@ -124,11 +124,14 @@
         <label>Description:</label>
         <textarea name="description" rows="10" cols="30" ><%= @pet_to_edit.description %></textarea>
       </li>
-      <li>
-        <input type="hidden" name="user_id" value="<%= @owner %>">
-      </li>
     </ul>
 
+    <input type="hidden" name="user_id" value="<%= @owner %>">
+    <input type="hidden" name="pet_id" value="<%= @pet_to_edit.id %>">
+
     <button>Update</button>
+  </form>
+  <form class="" action="/home" method="get">
+    <button>cancel</button>
   </form>
 </div>

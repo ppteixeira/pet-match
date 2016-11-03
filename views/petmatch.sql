@@ -27,12 +27,12 @@ INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, stat
 INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Buddy', 'dog', 30, 11, 'male', 22, 2,' dog Buddy bla bla bla');
 INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Rocky', 'dog', 30, 11, 'male', 22, 2,' dog Rocky bla bla bla');
 INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Jake', 'dog', 17, 11, 'male', 22, 2,' dog Jake bla bla bla');
-INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Bella', 'dog', 52, 21, 'male', 53, 5,' dog Bella bla bla bla');
-INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Lucy', 'dog', 52, 21, 'male', 53, 5,' dog Lucy bla bla bla');
-INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Molly', 'dog', 52, 21, 'male', 53, 5,' dog Molly bla bla bla');
-INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Daisy', 'dog', 30, 21, 'male', 22, 2,' dog Daisy bla bla bla');
-INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Sophie', 'dog', 30, 21, 'male', 22, 2,' dog Sophie bla bla bla');
-INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Lola', 'dog', 17, 21, 'male', 22, 2,' dog Lola bla bla bla');
+INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Bella', 'dog', 52, 21, 'female', 53, 5,' dog Bella bla bla bla');
+INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Lucy', 'dog', 52, 21, 'female', 53, 5,' dog Lucy bla bla bla');
+INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Molly', 'dog', 52, 21, 'female', 53, 5,' dog Molly bla bla bla');
+INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Daisy', 'dog', 30, 21, 'female', 22, 2,' dog Daisy bla bla bla');
+INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Sophie', 'dog', 30, 21, 'female', 22, 2,' dog Sophie bla bla bla');
+INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Lola', 'dog', 17, 21, 'female', 22, 2,' dog Lola bla bla bla');
 
 
 
