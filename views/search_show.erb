@@ -33,10 +33,16 @@
               <%= pet.description %>
             </p>
           </div>
+          <form class="" action="/pet/<%= pet.id %>" method="get">
+            <button>See more</button>
+          </form>
           <form class="" action="/match/add" method="post">
-            <input type="hidden" name="pet_match" value="<%= pet %>">
+            <input type="hidden" name="pet_match" value="<%= pet.id %>">
             <button>Save</button>
           </form>
+          <p class="message-saved">
+
+          </p>
         </div>
       </li>
     <% end %> <!-- <%# @pets.each do |pet| %> -->

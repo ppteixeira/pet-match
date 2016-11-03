@@ -48,9 +48,74 @@
             <input id="hidden" type="hidden" name="_method" value="delete">
             <button>delete</button>
           </form>
+
+          <form class="" action="/search/result" method="get">
+            <input type="hidden" name="city" value="<%= pet.city_id %>">
+            <input type="hidden" name="species" value="<%= pet.species %>">
+            <input type="hidden" name="breed" value="<%= pet.dog_breed_id %>">
+            <% if pet.gender == 'male' %>
+              <input type="hidden" name="gender" value="female">
+            <% else %>
+              <input type="hidden" name="gender" value="male">
+            <% end %>
+
+            <button>Search Match</button>
+          </form>
+
+          <form class="" action="/pet/<%= pet.id %>" method="get">
+            <button>See more</button>
+          </form>
         </div>
       </li>
       <% end %> <!-- @pets.each do |pet| -->
    </ul>
   <% end %> <!-- else - if @pets.count < 1 -->
+
+  <div class="header text-center">
+    <h2> My Match list </h2>
+  </div>
+
+  <% if @matches.count < 1 %>
+
+    <div class="pet-user">
+      <p>
+        No matches
+        Click <a href="/search">here</a> to search
+      </p>
+    </div>
+  <% else %>
+    <div class="">
+      <%= "#{@matches.count} registered" %>
+    </div>
+    <ul>
+      <% @matches.each do |match| %>
+        <li>
+          <div class="pet-user">
+            <div class="pet-user-img">
+              <img src="<%= match.animal.image %>" alt="" />
+
+            </div>
+            <div class="pet-user-data">
+
+              <ul>
+                <li>Owner: <%= match.user.name %></li>
+                <li>Name: <%= match.animal.name %></li>
+                <li>Breed: <%= match.animal.dog_breed.name %></li>
+                <li>Gender: <%= match.animal.gender %></li>
+                <li>State: <%= match.animal.city.state.name %></li>
+                <li>City: <%= match.animal.city.name %></li>
+              </ul>
+              <p>
+                <%= match.animal.description %>
+              </p>
+            </div>
+
+            <form class="" action="/match/<%= match.id %>/delete" method="post">
+              <input type="hidden" name="_method" value="delete">
+              <button>Remove</button>
+            </form>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
 </div>

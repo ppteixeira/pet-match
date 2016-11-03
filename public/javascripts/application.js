@@ -7,8 +7,21 @@ function myFunction() {
     }
 }
 
-
-
-$('#select-state').change(function () {
-  alert( "Handler for .change() called." );
-});
+//
+// $(function() {
+//   $("form.save-match").submit(function(e){
+//     e.preventDefault();
+//
+//     $.ajax({
+//       type: "POST",
+//       url: "/match/add",
+//
+//       success: function(){
+//         $("#message-saved").html("Successfully saved")
+//       },
+//       error: function(){
+//         $("#message-saved").html("Not Successful")
+//       }
+//     });
+//   });
+// });

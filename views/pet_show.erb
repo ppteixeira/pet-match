@@ -1,0 +1,53 @@
+
+<ul>
+  <li>
+    <div class="pet-user">
+      <div class="pet-user-img">
+        <img src="<%= @pet.image %>" alt="" />
+
+      </div>
+      <div class="pet-user-data">
+
+        <ul>
+          <li>Name: <%= @pet.name %></li>
+          <li>Breed: <%= @pet.dog_breed.name %></li>
+          <li>Gender: <%= @pet.gender %></li>
+          <li>State: <%= @pet.city.state.name %></li>
+          <li>City: <%= @pet.city.name %></li>
+        </ul>
+        <p>
+          <%= @pet.description %>
+        </p>
+      </div>
+      <% if @pet.user_id == session[:user_id] %>
+        <form class="" action="/pet_edit/<%= @pet.id %>" method="get">
+          <button>edit</button>
+        </form>
+
+        <form class="" action="/pet/<%= @pet.id %>/delete" method="post">
+          <input id="hidden" type="hidden" name="_method" value="delete">
+          <button>delete</button>
+        </form>
+
+        <form class="" action="/search/result" method="get">
+          <input type="hidden" name="city" value="<%= @pet.city_id %>">
+          <input type="hidden" name="species" value="<%= @pet.species %>">
+          <input type="hidden" name="breed" value="<%= @pet.dog_breed_id %>">
+          <% if @pet.gender == 'male' %>
+            <input type="hidden" name="gender" value="female">
+          <% else %>
+            <input type="hidden" name="gender" value="male">
+          <% end %>
+
+          <button>Search Match</button>
+        </form>
+      <% else %>
+        <form  class="" action="/match/add" method="post">
+          <input type="hidden" name="pet_match" value="<%= @pet.id %>">
+          <button>Save</button>
+        </form>
+      <% end %>
+
+    </div>
+  </li>
+</ul>

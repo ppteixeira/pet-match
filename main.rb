@@ -32,8 +32,10 @@ get '/' do
   erb :index
 end
 
-get '/pet' do
-
+#----------------- PET --- ANIMAL -------------------
+get '/pet/:id' do
+  @pet = Animal.find(params[:id])
+  erb :pet_show
 end
 
 get '/pet/new' do
@@ -134,6 +136,7 @@ delete '/pet/:id/delete' do
   redirect to '/home'
 end
 
+# ---------------- CREATE ACCOUNT ---------------------
 get '/create-account' do
 
   erb :user_new
@@ -149,6 +152,7 @@ post '/create-account' do
   redirect to '/'
 end
 
+#-------------------- SESSION ------------------------
 get '/session/new' do
   erb :session_new
 end
@@ -173,15 +177,18 @@ delete '/session' do
   redirect to '/session/new'
 end
 
+# --------------- HOME > USER'S PAGE -------------
 get '/home' do
   if logged_in?
     @pets = Animal.where(user_id: session[:user_id])
+    @matches = Match.where(user_id: session[:user_id])
     erb :user_home
   else
     redirect to "/"
   end
 end
 
+#--------------------- SEARCH ----------------------
 get '/search' do
   if logged_in?
     @nsw = City.where(state: '1').order('name ASC')
@@ -205,12 +212,18 @@ get "/search/result" do
   erb :search_show
 end
 
+#---------------------MATCH----------------------
 post "/match/add" do
-  @match = params[:pet_match]
-  binding.pry
+  pet = Animal.find(params[:pet_match])
+  match = Match.new
+  match.user_id = session[:user_id]
+  match.animal_id = pet.id
+  match.save
   redirect to '/home'
 end
 
-post "/photos" do
-  photo = params[:image]
+delete "/match/:id/delete" do
+  Match.find(params[:id]).destroy
+  redirect to '/home'
+
 end
