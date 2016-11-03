@@ -24,7 +24,7 @@
         <div class="pet-user">
           <div class="pet-user-img">
             <img src="<%= pet.image %>" alt="" />
-          
+
           </div>
           <div class="pet-user-data">
 
@@ -44,7 +44,8 @@
             <button>edit</button>
           </form>
 
-          <form class="" action="/pet_delete/<%= pet.id %>" method="post">
+          <form class="" action="/pet/<%= pet.id %>/delete" method="post">
+            <input id="hidden" type="hidden" name="_method" value="delete">
             <button>delete</button>
           </form>
         </div>

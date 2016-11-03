@@ -129,6 +129,11 @@ post '/pet/update' do
   end
 end
 
+delete '/pet/:id/delete' do
+  Animal.find(params[:id]).destroy
+  redirect to '/home'
+end
+
 get '/create-account' do
 
   erb :user_new
