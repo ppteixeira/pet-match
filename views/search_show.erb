@@ -1,5 +1,5 @@
 <h3> Search result </h3>
-<%= binding.pry %>
+
 <% if @pets.count < 1 %>
   <div class="">
     <%= "No pet registered" %>
@@ -35,7 +35,7 @@
           </div>
           <form class="" action="/match/add" method="post">
             <input type="hidden" name="pet_match" value="<%= pet %>">
-            <button></button>
+            <button>Save</button>
           </form>
         </div>
       </li>

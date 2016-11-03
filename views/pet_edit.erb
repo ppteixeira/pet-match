@@ -5,7 +5,7 @@
   <% end %>
 </div>
 <div >
-  <form class="" action="/pet/update" method="post">
+  <form class="" action="/pet/update" enctype="multipart/form-data" method="post">
     <ul>
       <li>
         <label>Name:</label>
@@ -123,6 +123,9 @@
       <li>
         <label>Description:</label>
         <textarea name="description" rows="10" cols="30" ><%= @pet_to_edit.description %></textarea>
+      </li>
+      <li>
+          <input type="file" name="image" placeholder="Upload File" />
       </li>
     </ul>
 

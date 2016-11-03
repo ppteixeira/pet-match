@@ -2,12 +2,18 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'active_record'
 require 'pry'
+require 'fog'
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
 require_relative 'db_config'
 require_relative 'models/animal'
 require_relative 'models/user'
 require_relative 'models/state'
 require_relative 'models/city'
 require_relative 'models/dog_breed'
+require_relative 'models/match'
+# require_relative 'models/my_uploader'
+
 
 enable :sessions
 
@@ -88,6 +94,7 @@ post '/pet/new' do
     pet.user_id = params[:user_id].to_i
     pet.city_id = params[:city].to_i
     pet.state_id = City.find(params[:city]).state.id
+    pet.image = params[:image]
     pet.save
     if pet.save
       binding.pry
@@ -111,7 +118,7 @@ post '/pet/update' do
     pet.user_id = params[:user_id].to_i
     pet.city_id = params[:city].to_i
     pet.state_id = City.find(params[:city]).state.id
-
+    pet.image = params[:image]
     if pet.save
       redirect to "/home"
     else
@@ -191,4 +198,14 @@ end
 get "/search/result" do
   @pets = Animal.where(city_id: params[:city], species: params[:species], dog_breed_id: params[:breed], gender: params[:gender])
   erb :search_show
+end
+
+post "/match/add" do
+  @match = params[:pet_match]
+  binding.pry
+  redirect to '/home'
+end
+
+post "/photos" do
+  photo = params[:image]
 end

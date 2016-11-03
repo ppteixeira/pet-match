@@ -21,6 +21,15 @@ CREATE TABLE animals (
   description TEXT
 );
 
+CREATE TABLE matches (
+  id SERIAL4 PRIMARY KEY,
+  user_id INTEGER,
+  animal_id INTEGER
+);
+
+
+
+
 INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Max', 'dog', 52, 11, 'male', 53, 5,' dog Max bla bla bla');
 INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Buster', 'dog', 52, 11, 'male', 53, 5,' dog Buster bla bla bla');
 INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Charlie', 'dog', 52, 11, 'male', 53, 5,' dog Charlie bla bla bla');
