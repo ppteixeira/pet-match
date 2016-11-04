@@ -34,11 +34,16 @@ end
 
 #----------------- PET --- ANIMAL -------------------
 get '/pet/:id' do
-  @pet = Animal.find(params[:id])
-  erb :pet_show
+  if logged_in?
+    @pet = Animal.find(params[:id])
+    erb :pet_show
+  else
+    redirect to '/'
+  end
+
 end
 
-get '/pet/new' do
+get '/pet_new' do
   if logged_in?
     @error = nil
     if params[:save] == 'false'
@@ -99,7 +104,6 @@ post '/pet/new' do
     pet.image = params[:image]
     pet.save
     if pet.save
-      binding.pry
       redirect to "/home"
     else
       redirect to "/pet/new?save=false"
@@ -132,6 +136,7 @@ post '/pet/update' do
 end
 
 delete '/pet/:id/delete' do
+  binding.pry
   Animal.find(params[:id]).destroy
   redirect to '/home'
 end

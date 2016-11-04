@@ -1,98 +1,197 @@
-<div class="col-12 content-title">
-  <h2>Register my Pet</h2>
-  <% if @error != nil %>
-    <h3><%= @error %></h3>
-  <% end %>
+
+
+<div class="col-md-5">
+    <div class="form-area">
+        <form role="form" action="/pet/new" enctype="multipart/form-data" method="post">
+        <br style="clear:both">
+                    <h3 style="margin-bottom: 25px; text-align: center;">Contact Form</h3>
+    				<div class="form-group">
+						<input type="text" class="form-control"  name="name" placeholder="Name" required>
+					</div>
+
+					<div class="form-group">
+
+						<input type="hidden" class="form-control"  name="species" placeholder="Email" required>
+					</div>
+
+					<div class="form-group">
+            <select class="form-control" name="breed" required>
+              <option value="" disabled selected>Breed</option>
+              <% @breeds.each do |breed| %>
+                <option value="<%= breed.id %>"><%= breed.name %></option>
+              <% end %>
+            </select>
+					</div>
+
+
+
+					<div class="form-group">
+            <select class="form-control" name="city" required>
+              <option value="" disabled selected>City</option>
+              <option  class="opt-state" disabled="" value="">NEW SOUTH WALES</option>
+              <% @nsw.each do |city| %>
+                <option value="<%= city.id %>"><%= city.name %></option>
+              <% end %>
+
+              <option  class="opt-state" disabled="" value="">QUEENSLAND</option>
+              <% @qld.each do |city| %>
+                <option value="<%= city.id %>"><%= city.name %></option>
+              <% end %>
+
+              <option  class="opt-state" disabled="" value="">SOUTH AUSTRALIA</option>
+              <% @sa.each do |city| %>
+                <option value="<%= city.id %>"><%= city.name %></option>
+              <% end %>
+
+              <option  class="opt-state" disabled="" value="">TASMANIA</option>
+              <% @tas.each do |city| %>
+                <option value="<%= city.id %>"><%= city.name %></option>
+              <% end %>
+
+              <option  class="opt-state" disabled="" value="">VICTORIA</option>
+              <% @vic.each do |city| %>
+                <option value="<%= city.id %>"><%= city.name %></option>
+              <% end %>
+
+              <option  class="opt-state" disabled="" value="">WESTERN AUSTRALIA</option>
+              <% @wa.each do |city| %>
+                <option value="<%= city.id %>"><%= city.name %></option>
+              <% end %>
+
+              <option  class="opt-state" disabled="" value="">AUSTRALIA CAPITAL TERRITORY</option>
+              <% @act.each do |city| %>
+                <option value="<%= city.id %>"><%= city.name %></option>
+              <% end %>
+
+              <option  class="opt-state" disabled="" value="">NOTHERN TERRITORY</option>
+              <% @nt.each do |city| %>
+                <option value="<%= city.id %>"><%= city.name %></option>
+              <% end %>
+            </select>
+					</div>
+
+          <div class="form-group">
+            <select class="form-control" name="gender" placeholder="Gender" required>
+              <option value="" disabled selected>Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <input type="file" class="form-control" name="image" placeholder="Upload File" />
+          </div>
+
+          <div class="form-group">
+            <textarea class="form-control" type="textarea" placeholder="Description" maxlength="140" rows="7" name="description"></textarea>
+            <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" type="hidden" name="user_id" value="<%= @owner %>">
+          </div>
+
+        <button class="btn btn-primary pull-right">Submit Form</button>
+        </form>
+    </div>
+</div>
+
+
+<!-- <div class="col-12 content-title">
+<h2>Register my Pet</h2>
+<% if @error != nil %>
+<h3><%= @error %></h3>
+<% end %>
 </div>
 <div >
-  <form class="" action="/pet/new" enctype="multipart/form-data" method="post">
-    <ul>
-      <li>
-        <label>Name:</label>
-        <input type="text" name="name" value="">
-      </li>
-      <li>
-        <label>Species:</label>
-        <select class="" name="species" >
-          <option disabled selected value></option>
-          <option value="dog">Dog</option>
-          <option value='cat' disabled="">Cat</option>
-        </select>
-      </li>
-      <li>
-        <label>Breed:</label>
-        <select class="" name="breed">
-          <option value=""></option>
-          <% @breeds.each do |breed| %>
-            <option value="<%= breed.id %>"><%= breed.name %></option>
-          <% end %>
-        </select>
-      </li>
-      <li>
-        <label>Gender:</label>
-        <select class="" name="gender">
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-      </li>
-      <li>
-        <label>City:</label>
-        <select class="" name="city" >
-          <option  class="opt-state" disabled="" value="">NEW SOUTH WALES</option>
-          <% @nsw.each do |city| %>
-            <option value="<%= city.id %>"><%= city.name %></option>
-          <% end %>
+<form class="" action="/pet/new" enctype="multipart/form-data" method="post">
+<ul>
+<li>
+<label>Name:</label>
+<input type="text" name="name" value="">
+</li>
+<li>
+<label>Species:</label>
+<select class="" name="species" >
+<option disabled selected value></option>
+<option value="dog">Dog</option>
+<option value='cat' disabled="">Cat</option>
+</select>
+</li>
+<li>
+<label>Breed:</label>
+<select class="" name="breed">
+<option value=""></option>
+<% @breeds.each do |breed| %>
+<option value="<%= breed.id %>"><%= breed.name %></option>
+<% end %>
+</select>
+</li>
+<li>
+<label>Gender:</label>
+<select class="" name="gender">
+<option value="male">Male</option>
+<option value="female">Female</option>
+</select>
+</li>
+<li>
+<label>City:</label>
+<select class="" name="city" >
+<option  class="opt-state" disabled="" value="">NEW SOUTH WALES</option>
+<% @nsw.each do |city| %>
+<option value="<%= city.id %>"><%= city.name %></option>
+<% end %>
 
-          <option  class="opt-state" disabled="" value="">QUEENSLAND</option>
-          <% @qld.each do |city| %>
-            <option value="<%= city.id %>"><%= city.name %></option>
-          <% end %>
+<option  class="opt-state" disabled="" value="">QUEENSLAND</option>
+<% @qld.each do |city| %>
+<option value="<%= city.id %>"><%= city.name %></option>
+<% end %>
 
-          <option  class="opt-state" disabled="" value="">SOUTH AUSTRALIA</option>
-          <% @sa.each do |city| %>
-            <option value="<%= city.id %>"><%= city.name %></option>
-          <% end %>
+<option  class="opt-state" disabled="" value="">SOUTH AUSTRALIA</option>
+<% @sa.each do |city| %>
+<option value="<%= city.id %>"><%= city.name %></option>
+<% end %>
 
-          <option  class="opt-state" disabled="" value="">TASMANIA</option>
-          <% @tas.each do |city| %>
-            <option value="<%= city.id %>"><%= city.name %></option>
-          <% end %>
+<option  class="opt-state" disabled="" value="">TASMANIA</option>
+<% @tas.each do |city| %>
+<option value="<%= city.id %>"><%= city.name %></option>
+<% end %>
 
-          <option  class="opt-state" disabled="" value="">VICTORIA</option>
-          <% @vic.each do |city| %>
-            <option value="<%= city.id %>"><%= city.name %></option>
-          <% end %>
+<option  class="opt-state" disabled="" value="">VICTORIA</option>
+<% @vic.each do |city| %>
+<option value="<%= city.id %>"><%= city.name %></option>
+<% end %>
 
-          <option  class="opt-state" disabled="" value="">WESTERN AUSTRALIA</option>
-          <% @wa.each do |city| %>
-            <option value="<%= city.id %>"><%= city.name %></option>
-          <% end %>
+<option  class="opt-state" disabled="" value="">WESTERN AUSTRALIA</option>
+<% @wa.each do |city| %>
+<option value="<%= city.id %>"><%= city.name %></option>
+<% end %>
 
-          <option  class="opt-state" disabled="" value="">AUSTRALIA CAPITAL TERRITORY</option>
-          <% @act.each do |city| %>
-            <option value="<%= city.id %>"><%= city.name %></option>
-          <% end %>
+<option  class="opt-state" disabled="" value="">AUSTRALIA CAPITAL TERRITORY</option>
+<% @act.each do |city| %>
+<option value="<%= city.id %>"><%= city.name %></option>
+<% end %>
 
-          <option  class="opt-state" disabled="" value="">NOTHERN TERRITORY</option>
-          <% @nt.each do |city| %>
-            <option value="<%= city.id %>"><%= city.name %></option>
-          <% end %>
-        </select>
-      </li>
-      <li>
-        <label>Description:</label>
-        <textarea name="description" rows="10" cols="30" ></textarea>
-      </li>
-      <li>
-        <input type="hidden" name="user_id" value="<%= @owner %>">
-      </li>
-      <li>
-        <input type="file" name="image" placeholder="Upload File" />
-      </li>
-    </ul>
+<option  class="opt-state" disabled="" value="">NOTHERN TERRITORY</option>
+<% @nt.each do |city| %>
+<option value="<%= city.id %>"><%= city.name %></option>
+<% end %>
+</select>
+</li>
+<li>
+<label>Description:</label>
+<textarea name="description" rows="10" cols="30" ></textarea>
+</li>
+<li>
+<input type="hidden" name="user_id" value="<%= @owner %>">
+</li>
+<li>
+<input type="file" name="image" placeholder="Upload File" />
+</li>
+</ul>
 
 
 
-    <button>Save</button>
-  </form>
-</div>
+<button>Save</button>
+</form>
+</div> -->

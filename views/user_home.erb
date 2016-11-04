@@ -11,66 +11,61 @@
     <div class="pet-user">
       <p>
         No pets registered.
-        Click <a href="/pet/new">here</a> to register
+        Click <a href="/pet_new">here</a> to register
       </p>
     </div>
   <% else %>
-    <div class="">
+    <div class="text-center">
       <%= "#{@pets.count} registered" %>
     </div>
-    <ul>
-      <% @pets.each do |pet| %>
-      <li>
-        <div class="pet-user">
-          <div class="pet-user-img">
-            <img src="<%= pet.image %>" alt="" />
 
-          </div>
-          <div class="pet-user-data">
-
+    <% @pets.each do |pet| %>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img class="img-home"src="<%= pet.image %>" alt="<%= pet.name %>">
+          <div class="caption pet-home">
+            <h3 class="text-center"><%= pet.name %></h3>
             <ul>
-              <li>Name: <%= pet.name %></li>
-              <li>Breed: <%= pet.dog_breed.name %></li>
               <li>Gender: <%= pet.gender %></li>
+              <li>Breed: <%= pet.dog_breed.name %></li>
               <li>State: <%= pet.city.state.name %></li>
               <li>City: <%= pet.city.name %></li>
             </ul>
-            <p>
-              <%= pet.description %>
-            </p>
+            <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+
+            <form class="" action="/pet_edit/<%= pet.id %>" method="get">
+              <button class="btn btn-warning btn-block"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </form>
+
+            <form class="" action="/pet/<%= pet.id %>/delete" method="post">
+              <input id="hidden" type="hidden" name="_method" value="delete">
+              <button class="btn btn-danger btn-block"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+            </form>
+
+            <form class="" action="/search/result" method="get">
+              <input type="hidden" name="city" value="<%= pet.city_id %>">
+              <input type="hidden" name="species" value="<%= pet.species %>">
+              <input type="hidden" name="breed" value="<%= pet.dog_breed_id %>">
+              <% if pet.gender == 'male' %>
+                <input type="hidden" name="gender" value="female">
+              <% else %>
+                <input type="hidden" name="gender" value="male">
+              <% end %>
+              <button class="btn btn-success btn-block"><span class="glyphicon glyphicon-search"></span> Search Match</button>
+            </form>
+
+            <form class="" action="/pet/<%= pet.id %>" method="get">
+              <button class="btn btn-info btn-block"><span class="glyphicon glyphicon-eye-open"></span> See more</button>
+            </form>
+
           </div>
-
-          <form class="" action="/pet_edit/<%= pet.id %>" method="get">
-            <button>edit</button>
-          </form>
-
-          <form class="" action="/pet/<%= pet.id %>/delete" method="post">
-            <input id="hidden" type="hidden" name="_method" value="delete">
-            <button>delete</button>
-          </form>
-
-          <form class="" action="/search/result" method="get">
-            <input type="hidden" name="city" value="<%= pet.city_id %>">
-            <input type="hidden" name="species" value="<%= pet.species %>">
-            <input type="hidden" name="breed" value="<%= pet.dog_breed_id %>">
-            <% if pet.gender == 'male' %>
-              <input type="hidden" name="gender" value="female">
-            <% else %>
-              <input type="hidden" name="gender" value="male">
-            <% end %>
-
-            <button>Search Match</button>
-          </form>
-
-          <form class="" action="/pet/<%= pet.id %>" method="get">
-            <button>See more</button>
-          </form>
         </div>
-      </li>
-      <% end %> <!-- @pets.each do |pet| -->
-   </ul>
-  <% end %> <!-- else - if @pets.count < 1 -->
+      </div>
 
+    <% end %>
+  <% end %>
+
+  <div class="row"></div>
   <div class="header text-center">
     <h2> My Match list </h2>
   </div>
@@ -88,34 +83,33 @@
       <%= "#{@matches.count} registered" %>
     </div>
     <ul>
-      <% @matches.each do |match| %>
-        <li>
-          <div class="pet-user">
-            <div class="pet-user-img">
-              <img src="<%= match.animal.image %>" alt="" />
+    <% @matches.each do |match| %>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img class="img-home"src="<%= match.animal.image %>" alt="<%= match.animal.name %>">
+          <div class="caption pet-home">
+            <h3 class="text-center"><%= match.animal.name %></h3>
+            <ul>
+              <li>Owner: <%= match.user.name %></li>
+              <li>Name: <%= match.animal.name %></li>
+              <li>Breed: <%= match.animal.dog_breed.name %></li>
+              <li>Gender: <%= match.animal.gender %></li>
+              <li>State: <%= match.animal.city.state.name %></li>
+              <li>City: <%= match.animal.city.name %></li>
+            </ul>
 
-            </div>
-            <div class="pet-user-data">
-
-              <ul>
-                <li>Owner: <%= match.user.name %></li>
-                <li>Name: <%= match.animal.name %></li>
-                <li>Breed: <%= match.animal.dog_breed.name %></li>
-                <li>Gender: <%= match.animal.gender %></li>
-                <li>State: <%= match.animal.city.state.name %></li>
-                <li>City: <%= match.animal.city.name %></li>
-              </ul>
-              <p>
-                <%= match.animal.description %>
-              </p>
-            </div>
+            <form class="" action="/pet/<%= match.animal.id %>" method="get">
+              <button class="btn btn-info btn-block"><span class="glyphicon glyphicon-eye-open"></span> See more</button>
+            </form>
 
             <form class="" action="/match/<%= match.id %>/delete" method="post">
               <input type="hidden" name="_method" value="delete">
-              <button>Remove</button>
+              <button class="btn btn-danger btn-block"><span class="glyphicon glyphicon-trash"></span>Remove</button>
             </form>
+
           </div>
-        </li>
-      <% end %>
+        </div>
+      </div>
     <% end %>
+  <% end %>
 </div>
