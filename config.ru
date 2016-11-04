@@ -5,4 +5,4 @@ Bundler.require
 
 require './main'
 
-run HelloWorld
+Sinatra::Application
