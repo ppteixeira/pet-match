@@ -6,7 +6,7 @@ CREATE TABLE states (
 CREATE TABLE cities (
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(60),
-  state VARCHAR(50)
+  state_id INTEGER
 );
 
 CREATE TABLE animals (
@@ -18,13 +18,26 @@ CREATE TABLE animals (
   gender VARCHAR (10),
   city_id INTEGER,
   state_id INTEGER,
-  description TEXT
+  description TEXT,
+  image TEXT
 );
 
 CREATE TABLE matches (
   id SERIAL4 PRIMARY KEY,
   user_id INTEGER,
   animal_id INTEGER
+);
+
+CREATE TABLE dog_breeds (
+  id SERIAL4 PRIMARY KEY,
+  name VARCHAR(50)
+);
+
+CREATE TABLE users (
+  id SERIAL4 PRIMARY KEY,
+  name VARCHAR(50),
+  email VARCHAR(100),
+  password_digest VARCHAR(500)
 );
 
 
