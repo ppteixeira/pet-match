@@ -1,5 +1,7 @@
-require 'active_record'
 require_relative 'db_config'
+require 'fog'
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
 require_relative 'models/animal'
 require_relative 'models/user'
 require_relative 'models/state'
