@@ -56,6 +56,9 @@ INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, stat
 INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Sophie', 'dog', 30, 21, 'female', 22, 2,' dog Sophie bla bla bla');
 INSERT INTO animals (name, species, dog_breed_id, user_id, gender, city_id, state_id, description) VALUES ('Lola', 'dog', 17, 21, 'female', 22, 2,' dog Lola bla bla bla');
 
+INSERT INTO gender (name) VALUES ('male')
+INSERT INTO gender (name) VALUES ('female')
+
 
 
 

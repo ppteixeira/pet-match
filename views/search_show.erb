@@ -2,7 +2,7 @@
 
 <% if @pets.count < 1 %>
   <div class="">
-    <%= "No pet registered" %>
+    <%= "No pet found in this city" %>
   </div>
   <div class="pet-user">
     <p>
@@ -14,37 +14,33 @@
   <div class="">
     <%= "#{@pets.count} registered" %>
   </div>
-  <ul>
+
     <% @pets.each do |pet| %>
-      <li>
-        <div class="pet-user">
-          <div class="pet-user-img">
-            <span>Name: <%= pet.name %></span>
-          </div>
-          <div class="pet-user-data">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img class="img-home"src="<%= pet.image %>" alt="<%= pet.name %>">
+          <div class="caption pet-home">
+            <h3 class="text-center"><%= pet.name %></h3>
             <ul>
-              <li>Name: <%= pet.name %></li>
-              <li>Breed: <%= pet.dog_breed.name %></li>
               <li>Gender: <%= pet.gender %></li>
+              <li>Breed: <%= pet.dog_breed.name %></li>
               <li>State: <%= pet.city.state.name %></li>
               <li>City: <%= pet.city.name %></li>
             </ul>
-            <p>
-              <%= pet.description %>
-            </p>
-          </div>
-          <form class="" action="/pet/<%= pet.id %>" method="get">
-            <button>See more</button>
-          </form>
-          <form class="" action="/match/add" method="post">
-            <input type="hidden" name="pet_match" value="<%= pet.id %>">
-            <button><span class="glyphicon glyphicon-heart"></span>Save</button>
-          </form>
-          <p class="message-saved">
+            <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
 
-          </p>
+            <form class="" action="/pet/<%= pet.id %>" method="get">
+              <button class="btn btn-info btn-block"><span class="glyphicon glyphicon-eye-open"></span> See more</button>
+            </form>
+
+            <form class="" action="/match/add" method="post">
+              <input type="hidden" name="pet_match" value="<%= pet.id %>">
+              <button class="btn btn-success btn-block"><span class="glyphicon glyphicon-heart"></span>Save</button>
+            </form>
+
+
+          </div>
         </div>
-      </li>
-    <% end %> <!-- <%# @pets.each do |pet| %> -->
- </ul>
-<% end %> <!-- <%# if @pets.count < 1 %> -->
+      </div>
+    <% end %>
+<% end %>
