@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'sinatra/reloader' #comment when push to production
+# require 'sinatra/reloader' #comment when push to production
 require 'active_record'
 require 'pry'
 require 'fog'
