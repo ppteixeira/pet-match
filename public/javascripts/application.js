@@ -23,11 +23,10 @@ $(document).ready(function(){
             $('#characterLeft').removeClass('red');
         }
     });
-});
 
-// ----------------pet show------------------
 
-$(document).ready(function() {
+
+  // ----------------pet show------------------
     var panels = $('.pet-infos');
     var panelsButton = $('.dropdown-pet');
     panels.hide();
@@ -53,30 +52,11 @@ $(document).ready(function() {
         })
     });
 
-
     $('[data-toggle="tooltip"]').tooltip();
 
-    // $('.button-showpet').click(function(e) {
-    //     e.preventDefault();
-    //     alert("This is a demo.\n :-)");
-    // });
-});
+    // Delete button
+    $('.delete').on('click', function () {
+      alert('Are you sure you want to delete?')
+    });
 
-//
-// $(function() {
-//   $("form.save-match").submit(function(e){
-//     e.preventDefault();
-//
-//     $.ajax({
-//       type: "POST",
-//       url: "/match/add",
-//
-//       success: function(){
-//         $("#message-saved").html("Successfully saved")
-//       },
-//       error: function(){
-//         $("#message-saved").html("Not Successful")
-//       }
-//     });
-//   });
-// });
+});

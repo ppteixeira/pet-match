@@ -21,25 +21,30 @@
 
     <% @pets.each do |pet| %>
       <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
+        <div class="thumbnail card">
           <img class="img-home"src="<%= pet.image %>" alt="<%= pet.name %>">
           <div class="caption pet-home">
             <h3 class="text-center"><%= pet.name %></h3>
             <ul>
-              <li>Gender: <%= pet.gender %></li>
-              <li>Breed: <%= pet.dog_breed.name %></li>
-              <li>State: <%= pet.city.state.name %></li>
-              <li>City: <%= pet.city.name %></li>
+              <li><b>Gender:</b> <%= pet.gender %></li>
+              <li><b>Breed:</b> <%= pet.dog_breed.name %></li>
+              <li><b>State:</b> <%= pet.city.state.name %></li>
+              <li><b>City:</b> <%= pet.city.name %></li>
             </ul>
             <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
 
+            <form class="" action="/pet/<%= pet.id %>" method="get">
+              <button class="btn btn-info btn-block"><span class="glyphicon glyphicon-eye-open"></span> See more</button>
+            </form>
+
             <form class="" action="/pet_edit/<%= pet.id %>" method="get">
-              <button class="btn btn-warning btn-block"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+              <button class="btn btn-warning "><span class="glyphicon glyphicon-pencil"></span> Edit</button>
             </form>
 
             <form class="" action="/pet/<%= pet.id %>/delete" method="post">
               <input id="hidden" type="hidden" name="_method" value="delete">
-              <button class="btn btn-danger btn-block"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+
+              <button type='hidden' class="btn btn-danger btn-block delete"><span class="glyphicon glyphicon-trash"></span> Delete</button>
             </form>
 
             <form class="" action="/search/result" method="get">
@@ -54,9 +59,7 @@
               <button class="btn btn-success btn-block"><span class="glyphicon glyphicon-search"></span> Search Match</button>
             </form>
 
-            <form class="" action="/pet/<%= pet.id %>" method="get">
-              <button class="btn btn-info btn-block"><span class="glyphicon glyphicon-eye-open"></span> See more</button>
-            </form>
+            <div class="clear"></div>
 
           </div>
         </div>
@@ -85,17 +88,17 @@
     <ul>
     <% @matches.each do |match| %>
       <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
+        <div class="thumbnail card">
           <img class="img-home"src="<%= match.animal.image %>" alt="<%= match.animal.name %>">
           <div class="caption pet-home">
             <h3 class="text-center"><%= match.animal.name %></h3>
             <ul>
-              <li>Owner: <%= match.user.name %></li>
-              <li>Name: <%= match.animal.name %></li>
-              <li>Breed: <%= match.animal.dog_breed.name %></li>
-              <li>Gender: <%= match.animal.gender %></li>
-              <li>State: <%= match.animal.city.state.name %></li>
-              <li>City: <%= match.animal.city.name %></li>
+              <li><b>Owner:</b> <%= match.user.name %></li>
+              <li><b>Name:</b> <%= match.animal.name %></li>
+              <li><b>Breed:</b> <%= match.animal.dog_breed.name %></li>
+              <li><b>Gender:</b> <%= match.animal.gender %></li>
+              <li><b>State:</b> <%= match.animal.city.state.name %></li>
+              <li><b>City:</b> <%= match.animal.city.name %></li>
             </ul>
 
             <form class="" action="/pet/<%= match.animal.id %>" method="get">
@@ -104,8 +107,9 @@
 
             <form class="" action="/match/<%= match.id %>/delete" method="post">
               <input type="hidden" name="_method" value="delete">
-              <button class="btn btn-danger btn-block"><span class="glyphicon glyphicon-trash"></span>Remove</button>
+              <button class="btn btn-danger btn-block"><span class="glyphicon glyphicon-trash"></span> Remove</button>
             </form>
+            <div class="clear"></div>
 
           </div>
         </div>

@@ -17,7 +17,7 @@
 
     <% @pets.each do |pet| %>
       <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
+        <div class="thumbnail card">
           <img class="img-home"src="<%= pet.image %>" alt="<%= pet.name %>">
           <div class="caption pet-home">
             <h3 class="text-center"><%= pet.name %></h3>
@@ -37,7 +37,7 @@
               <input type="hidden" name="pet_match" value="<%= pet.id %>">
               <button class="btn btn-success btn-block"><span class="glyphicon glyphicon-heart"></span>Save</button>
             </form>
-
+            <div class="clear"></div>
 
           </div>
         </div>
