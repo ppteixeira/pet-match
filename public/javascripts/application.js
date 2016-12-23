@@ -7,6 +7,20 @@ function myFunction() {
     }
 }
 
+function readURL(input){
+  var ext = input.files[0]['name'].substring(input.files[0]['name'].lastIndexOf('.') + 1).toLowerCase();
+  if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")){
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $('#img').attr('src', e.target.result);
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }else{
+     $('#img').attr('src', '/assets/no_preview.png');
+  }
+}
+
 $(document).ready(function(){
     $('#characterLeft').text('140 characters left');
     $('#message').keydown(function () {
@@ -59,5 +73,7 @@ $(document).ready(function(){
     $('.delete').on('click', function () {
       confirm('Are you sure you want to delete?');
     });
+
+
 
 });

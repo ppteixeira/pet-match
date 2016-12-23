@@ -1,74 +1,93 @@
-<h2>Search your pet's partner</h2>
-<form class="" action="/search/result" method="get">
-  <ul>
-    <li>
-      <label>Species:</label>
-      <select class="" name="species" >
-        <option disabled selected value></option>
-        <option value="dog">Dog</option>
-        <option value='cat' disabled="">Cat</option>
-      </select>
-    </li>
-    <li>
-      <label>Breed:</label>
-      <select class="" name="breed">
-        <option value=""></option>
-        <% @breeds.each do |breed| %>
-          <option value="<%= breed.id %>"><%= breed.name %></option>
-        <% end %>
-      </select>
-    </li>
-    <li>
-      <label>Gender:</label>
-      <select class="" name="gender">
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>
-    </li>
-    <li>
-      <label>City:</label>
-      <select class="" name="city" >
-        <option  class="opt-state" disabled="" value="">NEW SOUTH WALES</option>
-        <% @nsw.each do |city| %>
-          <option value="<%= city.id %>"><%= city.name %></option>
-        <% end %>
+<div class="row main">
+  <div class="main-login main-center">
+      <form class="form-horizontal" action="/search/result" method="get">
+      <div class="panel-title text-center">
+        <h1 class="title">Find Pets</h1>
+        <hr />
+      </div>
 
-        <option  class="opt-state" disabled="" value="">QUEENSLAND</option>
-        <% @qld.each do |city| %>
-          <option value="<%= city.id %>"><%= city.name %></option>
-        <% end %>
+      <div class="form-group">
+        <label for="name" class="cols-sm-2 control-label">Breed</label>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <select class="" name="breed">
+              <option value=""></option>
+              <% @breeds.each do |breed| %>
+                <option value="<%= breed.id %>"><%= breed.name %></option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+      </div>
 
-        <option  class="opt-state" disabled="" value="">SOUTH AUSTRALIA</option>
-        <% @sa.each do |city| %>
-          <option value="<%= city.id %>"><%= city.name %></option>
-        <% end %>
+      <div class="form-group">
+        <label for="email" class="cols-sm-2 control-label">Gender</label>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <select class="" name="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
-        <option  class="opt-state" disabled="" value="">TASMANIA</option>
-        <% @tas.each do |city| %>
-          <option value="<%= city.id %>"><%= city.name %></option>
-        <% end %>
+      <div class="form-group">
+        <label for="password" class="cols-sm-2 control-label">City</label>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <select class="" name="city" >
+              <option  class="opt-state" selected="" value=""></option>
+              <option  class="opt-state" disabled="" value="">NEW SOUTH WALES</option>
+              <% @nsw.each do |city| %>
+                <option value="<%= city.id %>"><%= city.name %></option>
+              <% end %>
 
-        <option  class="opt-state" disabled="" value="">VICTORIA</option>
-        <% @vic.each do |city| %>
-          <option value="<%= city.id %>"><%= city.name %></option>
-        <% end %>
+              <option  class="opt-state" disabled="" value="">QUEENSLAND</option>
+              <% @qld.each do |city| %>
+                <option value="<%= city.id %>"><%= city.name %></option>
+              <% end %>
 
-        <option  class="opt-state" disabled="" value="">WESTERN AUSTRALIA</option>
-        <% @wa.each do |city| %>
-          <option value="<%= city.id %>"><%= city.name %></option>
-        <% end %>
+              <option  class="opt-state" disabled="" value="">SOUTH AUSTRALIA</option>
+              <% @sa.each do |city| %>
+                <option value="<%= city.id %>"><%= city.name %></option>
+              <% end %>
 
-        <option  class="opt-state" disabled="" value="">AUSTRALIA CAPITAL TERRITORY</option>
-        <% @act.each do |city| %>
-          <option value="<%= city.id %>"><%= city.name %></option>
-        <% end %>
+              <option  class="opt-state" disabled="" value="">TASMANIA</option>
+              <% @tas.each do |city| %>
+                <option value="<%= city.id %>"><%= city.name %></option>
+              <% end %>
 
-        <option  class="opt-state" disabled="" value="">NOTHERN TERRITORY</option>
-        <% @nt.each do |city| %>
-          <option value="<%= city.id %>"><%= city.name %></option>
-        <% end %>
-      </select>
-    </li>
-  </ul>
-  <button><span class="glyphicon glyphicon-search">Search</button>
-</form>
+              <option  class="opt-state" disabled="" value="">VICTORIA</option>
+              <% @vic.each do |city| %>
+                <option value="<%= city.id %>"><%= city.name %></option>
+              <% end %>
+
+              <option  class="opt-state" disabled="" value="">WESTERN AUSTRALIA</option>
+              <% @wa.each do |city| %>
+                <option value="<%= city.id %>"><%= city.name %></option>
+              <% end %>
+
+              <option  class="opt-state" disabled="" value="">AUSTRALIA CAPITAL TERRITORY</option>
+              <% @act.each do |city| %>
+                <option value="<%= city.id %>"><%= city.name %></option>
+              <% end %>
+
+              <option  class="opt-state" disabled="" value="">NOTHERN TERRITORY</option>
+              <% @nt.each do |city| %>
+                <option value="<%= city.id %>"><%= city.name %></option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <input type="hidden" name="species" value="dog">
+
+      <div class="form-group">
+        <button class="btn btn-primary btn-lg btn-block login-button"><span class="glyphicon glyphicon-search"> Search</button>
+      </div>
+
+    </form>
+  </div>
+</div>

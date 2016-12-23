@@ -63,7 +63,15 @@
 }
 
 .show-pet {
+  max-height: 21em;
+  margin: 0 auto;
+  padding-bottom: 1em;
+}
+
+.edit-img {
   max-height: 15em;
+  margin: 0 auto;
+  padding-bottom: 1em;
 }
 
 .main {
@@ -150,6 +158,14 @@ input, input::-webkit-input-placeholder {
   cursor: pointer;
 }
 
+.table-pet-information {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  margin: 0 auto;
+  text-align: center;
+  width: 50%
+}
+
 .table-pet-information > tbody > tr {
   border-top: 1px solid rgb(221, 221, 221);
 }
@@ -160,6 +176,10 @@ input, input::-webkit-input-placeholder {
 
 .table-pet-information > tbody > tr > td {
   border-top: 0;
+}
+
+.table-pet-information > tbody > tr > td > a{
+  color: #8fffed;
 }
 
 .toppad {
@@ -173,12 +193,13 @@ input, input::-webkit-input-placeholder {
 .dropmenu {
   background-color: black;
 }
-.dropmenu li hr {
+.dropmenu > ul > li {
   font-weight: bold;
   background-color: black;
+  padding: 3em;
 }
 
-.navbar button {
+#logout{
   width: 100%;
   background-color: black;
   padding: 1em;

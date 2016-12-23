@@ -5,7 +5,7 @@
     <div class="form-area">
         <form role="form" action="/pet/update" enctype="multipart/form-data" method="post">
         <br style="clear:both">
-                    <h3 style="margin-bottom: 25px; text-align: center;">New Pet Form</h3>
+                    <h3 style="margin-bottom: 25px; text-align: center;">Edit Pet</h3>
     				<div class="form-group">
 						<input type="text" class="form-control"  name="name" placeholder="Pet name" value="<%= @pet_to_edit.name %>" required>
 					</div>
@@ -27,8 +27,6 @@
               <% end %>
             </select>
 					</div>
-
-
 
 					<div class="form-group">
             <select class="form-control" name="city" required>
@@ -119,10 +117,11 @@
           </div>
 
 
-
           <div class="form-group">
-            <img src="" alt="">
-            <input type="file" class="form-control" name="image" placeholder="Upload File" />
+            <input type="file" id="upload" onchange="readURL(this)" class="form-control" name="image" placeholder="Upload File"/>
+            <br>
+            <img id="img" alt="Pet Pic" src="<%= @pet_to_edit.image %>" class="edit-img img-responsive">
+
           </div>
 
           <div class="form-group">
@@ -146,6 +145,10 @@
     </div>
 </div>
 
+<script type="text/javascript">
+//load image when editing pet
+
+</script>
 
 <!-- <div class="col-12 content-title">
   <h2>Edit my Pet</h2>

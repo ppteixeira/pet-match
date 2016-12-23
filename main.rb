@@ -1,5 +1,5 @@
 require 'sinatra'
-# require 'sinatra/reloader' #comment when push to production
+require 'sinatra/reloader' #comment when push to production
 require 'active_record'
 require 'pry'
 require 'fog'
@@ -73,6 +73,7 @@ get '/pet_edit/:pet_id' do
       @error = "There was an error. Pet could not be saved."
     end
     @pet_to_edit = Animal.find(params[:pet_id])
+    @image_show = @pet_to_edit.image
     @nsw = City.where(state: '1').order('name ASC')
     @qld = City.where(state: '2').order('name ASC')
     @sa = City.where(state: '3').order('name ASC')
@@ -124,7 +125,9 @@ post '/pet/update' do
     pet.user_id = params[:user_id].to_i
     pet.city_id = params[:city].to_i
     pet.state_id = City.find(params[:city]).state.id
-    pet.image = params[:image]
+    if params[:image] != nil
+        pet.image = params[:image]
+    end
     if pet.save
       redirect to "/home"
     else
