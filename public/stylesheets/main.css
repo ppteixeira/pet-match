@@ -1,14 +1,18 @@
+.main-content {
+  height: 100vh;
+  background-image: url("../images/dog_dating.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+}
 
 .index-container {
-  background-image: url("../images/dog_dating.jpg");
-  height: auto;
   background-size: cover;
   color: #ffffff;
-  height: 700px;
 }
-.nav-blue {
-  background-color: #D9EDF7;
-}
+
 .logo {
   max-width: 10px;
 }
@@ -38,8 +42,11 @@
 }
 
 .card {
-  box-shadow: 10px 10px 17px #ddd;
-  padding: 1em;
+  box-shadow: 5px 5px 10px #000;
+}
+
+.card img{
+    padding-top: 2em;
 }
 
 .card button {
@@ -50,9 +57,6 @@
   margin-bottom: 0.5em;
 }
 
-.card img {
-
-}
 
 .clear {
   clear: both;
@@ -67,10 +71,11 @@
 }
 
 .red {
-  color:red;
+  color: red;
 }
+
 .form-area {
-  background-color: #FAFAFA;
+  background-color: rgba(255, 255, 255,0.5);
 	padding: 10px 40px 60px;
 	margin: 10px 0px 60px;
 	border: 1px solid GREY;
@@ -78,7 +83,6 @@
 
 h1.title {
 	font-size: 50px;
-
 	font-weight: 400;
 }
 
@@ -96,12 +100,12 @@ label {
 }
 
 input, input::-webkit-input-placeholder {
-    font-size: 11px;
-    padding-top: 3px;
+  font-size: 11px;
+  padding-top: 3px;
 }
 
 .main-login {
-	background-color: #fff;
+	background-color: rgba(255, 255, 255, 0.5);
   /* shadows and rounded borders */
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -160,4 +164,48 @@ input, input::-webkit-input-placeholder {
 
 .toppad {
   margin-top:20px;
+}
+
+.buttons {
+  margin: 0 auto;
+}
+
+.dropmenu {
+  background-color: black;
+}
+.dropmenu li hr {
+  font-weight: bold;
+  background-color: black;
+}
+
+.navbar button {
+  width: 100%;
+  background-color: black;
+  padding: 1em;
+  color: #fff;
+}
+
+.footer {
+  height: 4em;
+  background-color: black;
+  position: fixed;
+  bottom: 0;
+}
+.pet-panel {
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255,0.5);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.pet-info {
+  padding: 2em;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-petinfo {
+  width: 10em;
+  margin-top: 1em;
 }

@@ -1,11 +1,12 @@
 <!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" > -->
 
-<div class="panel panel-info">
+<div class="pet-panel panel-primary ">
   <div class="panel-heading">
     <h3 class="panel-title"><%= @pet.name %></h3>
   </div>
-  <div class="panel-body">
+  <div class="pet-info">
     <div class="row">
+
       <div class="col-md-3 col-lg-3 " align="center"> <img alt="Pet Pic" src="<%= @pet.image %>" class="show-pet img-responsive"> </div>
       <div class=" col-md-9 col-lg-9 ">
         <table class="table table-pet-information">
@@ -42,16 +43,16 @@
               <td>Email</td>
               <td><a href="mailto:<%= @pet.user.email %>"><%= @pet.user.email %></a></td>
             </tr>
-
           </tbody>
         </table>
+
         <% if @pet.user_id == session[:user_id] %>
           <form class="" action="index.html" method="post">
-            <a href="/pet_edit/<%= @pet.id %>" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+            <a href="/pet_edit/<%= @pet.id %>" class="btn btn-warning btn-petinfo"><span class="glyphicon glyphicon-edit"></span> Edit</a>
           </form>
           <form class="" action="/pet/<%= @pet.id %>/delete" method="post">
             <input id="hidden" type="hidden" name="_method" value="delete">
-            <button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+            <button class="btn btn-danger btn-petinfo"><span class="glyphicon glyphicon-remove"></span> Delete</button>
           </form>
           <form class="" action="/search/result" method="get">
             <input type="hidden" name="city" value="<%= @pet.city_id %>">
@@ -63,19 +64,25 @@
               <input type="hidden" name="gender" value="male">
             <% end %>
 
-            <button class="btn btn-success">Search Match</button>
+            <button class="btn btn-success btn-petinfo">Search Match</button>
           </form>
         <% else %>
           <form  class="" action="/match/add" method="post">
             <input type="hidden" name="pet_match" value="<%= @pet.id %>">
-            <button class="btn btn-success">Save</button>
+            <button class="btn btn-success btn-petinfo">Save Match</button>
           </form>
         <% end %>
+        <button onclick="goBack()" class="btn btn-info btn-petinfo"><span class="glyphicon glyphicon-chevron-left"></span>Go Back</button>
       </div>
     <!-- div row -->
     </div>
   <!-- panel body -->
   </div>
-  <div class="panel-footer"></div>
+
 <!-- <div class="panel panel-info"> -->
 </div>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>

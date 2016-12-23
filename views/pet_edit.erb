@@ -1,4 +1,153 @@
-<div class="col-12 content-title">
+<div class="col-md-5 text-center">
+    <% if @error != nil %>
+      <h3><%= @error %></h3>
+    <% end %>
+    <div class="form-area">
+        <form role="form" action="/pet/update" enctype="multipart/form-data" method="post">
+        <br style="clear:both">
+                    <h3 style="margin-bottom: 25px; text-align: center;">New Pet Form</h3>
+    				<div class="form-group">
+						<input type="text" class="form-control"  name="name" placeholder="Pet name" value="<%= @pet_to_edit.name %>" required>
+					</div>
+
+					<div class="form-group">
+
+						<input type="hidden" class="form-control"  name="species" placeholder="Email" required>
+					</div>
+
+					<div class="form-group">
+            <select class="form-control" name="breed" required>
+              <option value="" disabled selected>Breed</option>
+              <% @breeds.each do |breed| %>
+                <% if breed.id == @pet_to_edit.dog_breed.id %>
+                  <option selected value="<%= breed.id %>"><%= breed.name %></option>
+                <% else %>
+                  <option value="<%= breed.id %>"><%= breed.name %></option>
+                <% end %>
+              <% end %>
+            </select>
+					</div>
+
+
+
+					<div class="form-group">
+            <select class="form-control" name="city" required>
+              <option  class="opt-state" disabled="" value="">NEW SOUTH WALES</option>
+              <% @nsw.each do |city| %>
+                <% if city.id == @pet_to_edit.city.id %>
+                  <option selected value="<%= city.id %>"><%= city.name %></option>
+                <% else %>
+                  <option value="<%= city.id %>"><%= city.name %></option>
+                <% end %>
+              <% end %>
+
+              <option  class="opt-state" disabled="" value="">QUEENSLAND</option>
+              <% @qld.each do |city| %>
+                <% if city.id == @pet_to_edit.city.id %>
+                  <option selected value="<%= city.id %>"><%= city.name %></option>
+                <% else %>
+                  <option value="<%= city.id %>"><%= city.name %></option>
+                <% end %>
+              <% end %>
+
+              <option  class="opt-state" disabled="" value="">SOUTH AUSTRALIA</option>
+              <% @sa.each do |city| %>
+                <% if city.id == @pet_to_edit.city.id %>
+                  <option selected value="<%= city.id %>"><%= city.name %></option>
+                <% else %>
+                  <option value="<%= city.id %>"><%= city.name %></option>
+                <% end %>
+              <% end %>
+
+              <option  class="opt-state" disabled="" value="">TASMANIA</option>
+              <% @tas.each do |city| %>
+                <% if city.id == @pet_to_edit.city.id %>
+                  <option selected value="<%= city.id %>"><%= city.name %></option>
+                <% else %>
+                  <option value="<%= city.id %>"><%= city.name %></option>
+                <% end %>
+              <% end %>
+
+              <option  class="opt-state" disabled="" value="">VICTORIA</option>
+              <% @vic.each do |city| %>
+                <% if city.id == @pet_to_edit.city.id %>
+                  <option selected value="<%= city.id %>"><%= city.name %></option>
+                <% else %>
+                  <option value="<%= city.id %>"><%= city.name %></option>
+                <% end %>
+              <% end %>
+
+              <option  class="opt-state" disabled="" value="">WESTERN AUSTRALIA</option>
+              <% @wa.each do |city| %>
+                <% if city.id == @pet_to_edit.city.id %>
+                  <option selected value="<%= city.id %>"><%= city.name %></option>
+                <% else %>
+                  <option value="<%= city.id %>"><%= city.name %></option>
+                <% end %>
+              <% end %>
+
+              <option  class="opt-state" disabled="" value="">AUSTRALIA CAPITAL TERRITORY</option>
+              <% @act.each do |city| %>
+                <% if city.id == @pet_to_edit.city.id %>
+                  <option selected value="<%= city.id %>"><%= city.name %></option>
+                <% else %>
+                  <option value="<%= city.id %>"><%= city.name %></option>
+                <% end %>
+              <% end %>
+
+              <option  class="opt-state" disabled="" value="">NOTHERN TERRITORY</option>
+              <% @nt.each do |city| %>
+                <% if city.id == @pet_to_edit.city.id %>
+                  <option selected value="<%= city.id %>"><%= city.name %></option>
+                <% else %>
+                  <option value="<%= city.id %>"><%= city.name %></option>
+                <% end %>
+              <% end %>
+            </select>
+					</div>
+
+          <div class="form-group">
+            <select class="form-control" name="gender" placeholder="Gender" required>
+              <% if @pet_to_edit.gender == 'male' %>
+                <option selected value="male">Male</option>
+                <option value="female">Female</option>
+              <% else %>
+                <option  value="male">Male</option>
+                <option selected value="female">Female</option>
+              <% end %>
+            </select>
+          </div>
+
+
+
+          <div class="form-group">
+            <img src="" alt="">
+            <input type="file" class="form-control" name="image" placeholder="Upload File" />
+          </div>
+
+          <div class="form-group">
+            <textarea id="message" class="form-control" type="textarea" placeholder="Description" maxlength="140" rows="7" name="description"><%= @pet_to_edit.description %></textarea>
+            <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" type="hidden" name="user_id" value="<%= @owner %>">
+          </div>
+          <input type="hidden" name="user_id" value="<%= @owner %>">
+          <input type="hidden" name="pet_id" value="<%= @pet_to_edit.id %>">
+
+        <button class="btn btn-primary pull-right">Update</button>
+
+
+      </form>
+      <form class="" action="/home" method="get">
+        <button>cancel</button>
+      </form>
+    </div>
+</div>
+
+
+<!-- <div class="col-12 content-title">
   <h2>Edit my Pet</h2>
   <% if @error != nil %>
     <h3><%= @error %></h3>
@@ -137,4 +286,4 @@
   <form class="" action="/home" method="get">
     <button>cancel</button>
   </form>
-</div>
+</div> -->

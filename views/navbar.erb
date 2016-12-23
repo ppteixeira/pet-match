@@ -1,4 +1,4 @@
-<div class="navbar navbar-default nav-blue " >
+<div class="navbar navbar-inverse" >
   <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -12,7 +12,7 @@
         <% if logged_in? %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"> </span><%= current_user.name %> <span class="caret"></span></a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu dropmenu">
             <li class="text-center"> <%= current_user.email %></li>
             <li><a href="/home">My page</a></li>
             <li><a href="/pet_new">Add Pet</a></li>

@@ -136,7 +136,6 @@ post '/pet/update' do
 end
 
 delete '/pet/:id/delete' do
-  binding.pry
   Animal.find(params[:id]).destroy
   redirect to '/home'
 end
