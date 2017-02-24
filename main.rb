@@ -14,7 +14,6 @@ require_relative 'models/dog_breed'
 require_relative 'models/match'
 # require_relative 'models/my_uploader'
 
-
 enable :sessions
 
 helpers do
@@ -28,7 +27,6 @@ helpers do
 end
 
 get '/' do
-
   erb :index
 end
 
@@ -40,7 +38,6 @@ get '/pet/:id' do
   else
     redirect to '/'
   end
-
 end
 
 get '/pet_new' do
@@ -126,7 +123,7 @@ post '/pet/update' do
     pet.city_id = params[:city].to_i
     pet.state_id = City.find(params[:city]).state.id
     if params[:image] != nil
-        pet.image = params[:image]
+      pet.image = params[:image]
     end
     if pet.save
       redirect to "/home"
@@ -145,12 +142,10 @@ end
 
 # ---------------- CREATE ACCOUNT ---------------------
 get '/create-account' do
-
   erb :user_new
 end
 
 post '/create-account' do
-
   user = User.new
   user.name = params[:name]
   user.email = params[:email]
@@ -232,5 +227,4 @@ end
 delete "/match/:id/delete" do
   Match.find(params[:id]).destroy
   redirect to '/home'
-
 end

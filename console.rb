@@ -7,6 +7,3 @@ require_relative 'models/state'
 require_relative 'models/city'
 require_relative 'models/dog_breed'
 require_relative 'models/match'
-
-
-binding.pry
