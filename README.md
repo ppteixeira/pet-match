@@ -1,11 +1,11 @@
-#PET MATCH
+# PET MATCH
 
 
-##About the project
+## About the project
 
   This is my second project from my Web Development Immersive course at General Assembly.
 
-###Requirements overview
+### Requirements overview
 
   This second project is your first foray into **building a full-stack application.** You'll be **building a Sinatra app,** which means you'll learn about what it takes to build a functional application from the ground up yourself.
 
@@ -13,18 +13,18 @@
 
   **You will be working individually for this project**, and you'll be designing the app yourself. We hope you'll exercise creativity on this project, sketch some wireframes before you start, and write user stories to define what your users will want to do with the app. Make sure you have time to run these ideas by your instructors to get their feedback before you dive too deep into code! Remember to keep things small and focus on mastering the fundamentals – scope creep/feature creep is the biggest pitfall for any project!
 
-##The Idea
+## The Idea
 
   Pet Match is a web application where pet owners can try to locate pets of the same breed of their pets.
 
-###How to use
+### How to use
 
   The users will sign up for the service and register their pets.
   After registering, an automatic search is available, that will look for pets of opposite gender in the same city.
   Custom search can also be made looking for the breed and city.
   The same owner can register multiple pets in different cities
 
-###Tech
+### Tech
 
   - [Ruby](https://www.ruby-lang.org/en/)
   - [Sinatra](https://rubygems.org/gems/sinatra)
@@ -36,7 +36,7 @@
   - [Jquery](http://jquery.com/)
   - [Bootstrap](http://getbootstrap.com/)
 
-###Testing
+### Testing
 
   You can access [Pet Match](https://petmatch-au.herokuapp.com/home)
 
